@@ -1,0 +1,15 @@
+php_flag display_errors on
+
+AddDefaultCharset UTF-8
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteBase /
+
+RewriteCond %{REQUEST_URI} ^/ckfinder/(.*)$
+RewriteRule ^ckfinder/(.*)$ /libs/classes/ckfinder/$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php [L]
+</IfModule>
